@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Node Manager Command
+# Controls the child node(s) of the application
+
+BIN_BASE=$(dirname $0)
+source BIN_BASE/../var/common.sh
+
+case "$1" in
+  "create-site")
+    
+    ;;
+
+  "delete-site")
+    
+    ;;
+
+  "deploy-site")
+    
+    ;;
+
+  *)
+    echo "Usage: node-manager"
+    exit 1
+    ;;
+esac
+
+exit 0
