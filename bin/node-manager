@@ -1,28 +1,11 @@
-#!/bin/sh
-#
-# Node Manager Command
-# Controls the child node(s) of the application
+#!/usr/bin/env php
+<?php
+/*
+ | Manager Command
+ | Controls the master and the nodes of application
+*/
 
-BIN_BASE=$(dirname $0)
-source BIN_BASE/../var/common.sh
+ if (! file_exists(__DIR__.'/vendor/autoload.php'))
+    die('Composer not installed.');
 
-case "$1" in
-  "create-site")
-    
-    ;;
-
-  "delete-site")
-    
-    ;;
-
-  "deploy-site")
-    
-    ;;
-
-  *)
-    echo "Usage: node-manager"
-    exit 1
-    ;;
-esac
-
-exit 0
+require_once (__DIR__.'/vendor/autoload.php');
