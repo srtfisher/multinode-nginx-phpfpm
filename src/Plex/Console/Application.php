@@ -9,20 +9,6 @@ class Application extends \Symfony\Component\Console\Application {
     const VERSION = '0.0.1';
 
     /**
-     * Instance of the Console
-     * 
-     * @var Plex\Console\Application
-     */
-    protected $command;
-
-    /**
-     * Indicates if the application has booted
-     * 
-     * @var boolean
-     */
-    protected $booted = false;
-
-    /**
      * Constructor
      */
     public function __construct()
