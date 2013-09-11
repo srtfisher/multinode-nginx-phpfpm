@@ -292,4 +292,15 @@ abstract class Command extends \Symfony\Component\Console\Command\Command {
     {
         return $this->output;
     }
+
+    /**
+     * Check and see if the verbosity is at or above a certain level
+     * 
+     * @param int
+     * @return boolean
+     */
+    public function verbosityCheck($level)
+    {
+        return ($this->output->getVerbosity() >= (int) $level);
+    }
 }
