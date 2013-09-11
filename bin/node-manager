@@ -1,11 +1,20 @@
 #!/usr/bin/env php
 <?php
+use Plex\Console\Application as Command;
+
 /*
  | Manager Command
  | Controls the master and the nodes of application
 */
 
- if (! file_exists(__DIR__.'/vendor/autoload.php'))
-    die('Composer not installed.');
+define('PLEX_CLI_PATH', __DIR__);
 
-require_once (__DIR__.'/vendor/autoload.php');
+ if (! file_exists(__DIR__.'/../vendor/autoload.php'))
+    die('Composer not installed.'.PHP_EOL);
+
+require_once (__DIR__.'/../vendor/autoload.php');
+
+$application = new Symfony\Component\Console\Application;
+require PLEX_CLI_PATH.'/../bootstrap/start.php';
+
+$application->run();
