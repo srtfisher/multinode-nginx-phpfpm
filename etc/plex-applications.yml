@@ -1,0 +1,4 @@
+applications:
+    0:
+        vcs: 'git'
+        source: 'git@github.com:srtfisher/srtfisher.github.io.git'

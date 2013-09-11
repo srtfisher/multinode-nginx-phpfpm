@@ -14,6 +14,11 @@ class CreateProjectCommand extends Command {
             ->children('nodes')
                 ->children(1)
                     ->children('host');
-                    
+        var_dump($config->toString());
+
+        var_dump( Config::retrieve('applications', null, null, 'plex-applications')
+            ->children(0)
+            ->toArray()
+        );
     }
 }

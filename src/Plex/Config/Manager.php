@@ -18,7 +18,7 @@ class Manager {
      * 
      * @var array
      */
-    protected static $config;
+    protected static $config = [];
 
     /**
      * Retrieve a configuration item
@@ -26,12 +26,13 @@ class Manager {
      * @param string
      * @param  mixed Default value to return (defaults to NULL)
      * @param  array Configuration to check though (null to load from file)
+     * @param string File name to load from
      * @return mixed
      */
-    public static function retrieve($key, $default = NULL, $parse = NULL)
+    public static function retrieve($key, $default = NULL, $parse = NULL, $file = 'plex')
     {
         if ($parse == NULL)
-            $parse = self::getParse();
+            $parse = self::getParse($file);
 
         return (isset($parse[$key])) ? new ConfigItem($parse[$key]) : $default;
     }
@@ -56,9 +57,11 @@ class Manager {
      * @throws  Plex\Exception\ConfigException
      * @return array
      */
-    public static function getParse($file = 'plex.yml')
+    public static function getParse($file = 'plex')
     {
-        if (self::$config !== NULL) return $this->parse;
+        if (isset( self::$config[$file] )) return self::$config[$file];
+        $file = $file.'.yml';
+        
         $locator = new FileLocator(self::configFiles());
         $configFiles = $locator->locate($file, null, false);
 
@@ -75,7 +78,7 @@ class Manager {
 
         if (count($config) == 0) throw new ConfigException('No configuration set for Plex.');
 
-        self::$config = $config;
-        return self::$config;
+        self::$config[$file] = $config;
+        return self::$config[$file];
     }
 }
