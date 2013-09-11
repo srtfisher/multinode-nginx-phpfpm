@@ -1,7 +1,5 @@
 #!/usr/bin/env php
 <?php
-use Plex\Console\Application as Command;
-
 /*
  | Manager Command
  | Controls the master and the nodes of application
@@ -17,4 +15,9 @@ require_once (__DIR__.'/../vendor/autoload.php');
 $application = new Plex\Console\Application;
 require PLEX_CLI_PATH.'/../bootstrap/start.php';
 
+/*
+ | Run The Application
+ | 
+ | There's no turning back.
+ */
 $application->run();
