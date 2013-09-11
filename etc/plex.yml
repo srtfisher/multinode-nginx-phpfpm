@@ -1,0 +1,12 @@
+plex :
+    # Define the role of this server
+    role: 'master'
+
+    # Server Name (if left out, will result to hostname)
+    name: 'master-001'
+
+    nodes :
+        1:
+            host: '127.0.0.1'
+        2:
+            host: 'apple.com'
