@@ -1,5 +1,4 @@
-<?php namespace Plex\Manager;
-use Illuminate\Events\Dispatcher;
+<?php namespace Plex\Console;
 
 class Application extends \Symfony\Component\Console\Application {
     /**
@@ -28,19 +27,7 @@ class Application extends \Symfony\Component\Console\Application {
      */
     public function __construct()
     {
-        $this->boot();
-    }
-
-    /**
-     * Boot the Application
-     * 
-     * @return void
-     */
-    public function boot()
-    {
-        if ($this->booted) return;
-
-        $this->command = new \Plex\Console\Application('Plex Node Manager', self::VERSION);
-        $this->booted = true;
+        parent::__construct('Plex Node Manager', self::VERSION);
+        $this->setAutoExit(false);
     }
 }

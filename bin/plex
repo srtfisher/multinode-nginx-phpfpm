@@ -14,7 +14,7 @@ define('PLEX_CLI_PATH', __DIR__);
 
 require_once (__DIR__.'/../vendor/autoload.php');
 
-$application = new Symfony\Component\Console\Application;
+$application = new Plex\Console\Application;
 require PLEX_CLI_PATH.'/../bootstrap/start.php';
 
 $application->run();
