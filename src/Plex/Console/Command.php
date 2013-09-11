@@ -8,6 +8,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Command Base Class
  *
+ * Based upon the Laravel Command from Illuminate
+ * {@link http://four.laravel.com/docs/commands}
+ *
  * @package  plex
  */
 abstract class Command extends \Symfony\Component\Console\Command\Command {
